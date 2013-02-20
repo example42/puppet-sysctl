@@ -162,13 +162,19 @@ class sysctl (
     noop    => $sysctl::bool_noops,
   }
 
+  exec { 'sysctl -p':
+    subscribe   => File['sysctl.conf'],
+    refreshonly => true,
+    path        => '/sbin:/bin:/usr/sbin:/usr/bin',
+  }
+
   # The whole sysctl configuration directory can be recursively overriden
   if $sysctl::source_dir {
     file { 'sysctl.dir':
       ensure  => directory,
       path    => $sysctl::config_dir,
       require => Package[$sysctl::package],
-      notify  => $sysctl::manage_service_autorestart,
+      notify  => Exec['sysctl -p'],
       source  => $sysctl::source_dir,
       recurse => true,
       purge   => $sysctl::bool_source_dir_purge,
