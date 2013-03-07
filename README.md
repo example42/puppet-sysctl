@@ -1,4 +1,4 @@
-= Puppet module: sysctl
+# Puppet module: sysctl
 
 This is a Puppet module for sysctl
 It provides only package installation and file configuration.
@@ -17,7 +17,7 @@ Released under the terms of Apache 2 License.
 This module requires the presence of Example42 Puppi module in your modulepath.
 
 
-== USAGE
+## USAGE
 
 You can decide to manage sysctl with 2 alternative methods:
 - Manage the /etc/sysctl.conf file (and /etc/sysctl.d directory) with the (Example42 standard) source and termplate parameters
@@ -56,6 +56,6 @@ You can decide to manage sysctl with 2 alternative methods:
         }
 
 
-== CONTINUOUS TESTING
+## CONTINUOUS TESTING
 
 Travis {<img src="https://travis-ci.org/example42/puppet-sysctl.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-sysctl]
