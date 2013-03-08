@@ -56,6 +56,5 @@ You can decide to manage sysctl with 2 alternative methods:
         }
 
 
-## CONTINUOUS TESTING
 
-Travis {<img src="https://travis-ci.org/example42/puppet-sysctl.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-sysctl]
+[![Build Status](https://travis-ci.org/example42/puppet-sysctl.png?branch=master)](https://travis-ci.org/example42/puppet-sysctl)
