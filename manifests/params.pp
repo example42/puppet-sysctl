@@ -50,6 +50,6 @@ class sysctl::params {
   $version = 'present'
   $absent = false
   $audit_only = false
-  $noops = false
+  $noops = undef
 
 }
