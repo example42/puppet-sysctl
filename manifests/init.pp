@@ -163,7 +163,7 @@ class sysctl (
 
   exec { 'sysctl -p':
     subscribe   => File['sysctl.conf'],
-    command     => "cat $sysctl::config_file $sysctl::config_dir/*.conf | sysctl -p -",
+    command     => "cat ${sysctl::config_file} ${sysctl::config_dir}/*.conf | sysctl -p -",
     refreshonly => true,
     path        => '/sbin:/bin:/usr/sbin:/usr/bin',
   }
