@@ -16,10 +16,13 @@ class sysctl::params {
 
   ### Application related parameters
 
-  $package = $::operatingsystem ? {
-    default => 'procps',
-  }
-
+#package name fix for centos 7
+  if $::operatingsystem == 'CentOS' and $::lsbmajdistrelease == '7' {
+    $package = 'procps-ng'
+  } else {
+    $package = 'procps'
+  } 
+  
   $config_dir = $::operatingsystem ? {
     default => '/etc/sysctl.d',
   }
