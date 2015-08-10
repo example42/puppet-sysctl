@@ -143,8 +143,8 @@ class sysctl (
 
   ### Managed resources
   package { $sysctl::package:
-    ensure  => $sysctl::manage_package,
-    noop    => $sysctl::noops,
+    ensure => $sysctl::manage_package,
+    noop   => $sysctl::noops,
   }
 
   file { 'sysctl.conf':

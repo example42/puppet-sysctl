@@ -21,7 +21,7 @@ class sysctl::params {
     $package = 'procps-ng'
   } else {
     $package = 'procps'
-  } 
+  }
   
   $config_dir = $::operatingsystem ? {
     default => '/etc/sysctl.d',
