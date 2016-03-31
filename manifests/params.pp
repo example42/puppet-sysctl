@@ -40,6 +40,7 @@ class sysctl::params {
   }
 
   $config_file_group = $::operatingsystem ? {
+    /(OpenBSD|FreeBSD|Solaris)/ => 'wheel',
     default => 'root',
   }
 
