@@ -1,0 +1,45 @@
+{
+  "name": "example42-sysctl",
+  "version": "2.0.18",
+  "summary": "Puppet module for sysctl",
+  "author": "Alessandro Franceschi",
+  "description": "This module installs and manages sysctl. Check README for details.",
+  "dependencies": [
+    {
+      "name": "example42/puppi",
+      "version_requirement": ">= 2.0.0"
+    }
+  ],
+  "types": [
+    {
+      "properties": [
+        {
+          "name": "val",
+          "doc": "Value the parameter should be set to"
+        },
+        {
+          "name": "target",
+          "doc": "Name of the file to store parameters in"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "Name of the parameter"
+        }
+      ],
+      "providers": [
+        {
+          "name": "parsed"
+        }
+      ],
+      "name": "sysctl",
+      "doc": "Manages kernel parameters in /etc/sysctl.conf.  By default this will\n                only edit the configuration file, and not change any of the runtime\n                values.  If you wish changes to be activated right away, you can do\n                so with an exec like so:\n\n                        exec { load-sysctl:\n                            command => \"/sbin/sysctl -p /etc/sysctl.conf\",\n                            refreshonly => true\n                        }\n\n                Set any changes you want to happen right away to notify this command,\n                or you can set it as the default:\n\n                        Sysctl {\n                            notify => Exec[load-sysctl]\n                        }"
+    }
+  ],
+  "checksums": {
+  },
+  "source": "https://github.com/example42/puppet-sysctl",
+  "project_page": "http://www.example42.com",
+  "license": "Apache2"
+}
