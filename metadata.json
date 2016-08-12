@@ -1,6 +1,6 @@
 {
   "name": "example42-sysctl",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "summary": "Puppet module for sysctl",
   "author": "Alessandro Franceschi",
   "description": "This module installs and manages sysctl. Check README for details.",
