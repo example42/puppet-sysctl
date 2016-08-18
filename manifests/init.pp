@@ -110,6 +110,12 @@ class sysctl (
   $bool_absent=any2bool($absent)
   $bool_audit_only=any2bool($audit_only)
 
+  # Hiera support
+  $hiera_sources = hiera_hash('sysctl::values', {})
+  if $hiera_sources {
+    create_resources('sysctl::value', $hiera_sources)
+  }
+
   ### Definition of some variables used in the module
   $manage_package = $sysctl::bool_absent ? {
     true  => 'absent',

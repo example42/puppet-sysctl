@@ -64,6 +64,33 @@ You can decide to manage sysctl with 2 alternative methods:
           my_class => 'example42::my_sysctl',
         }
 
+### Puppet 4
+
+* Enable class in your yaml or site.pp file (eg: something like so with site.pp)
+	hiera_include('classes')
+		..
+		- sysctl
+	
+
+
+* Add value to module of the yaml eg: 40_modules/sysctl.yaml
+
+	sysctl::values:
+	 net.ipv4.icmp_echo_ignore_broadcasts:
+	  value: '1'
+
+### Puppet 4 problems
+
+* I get error "Parameter noop failed on Package[procps]: Invalid value "". Valid values are true, false."
+
+	Add value to module of the yaml eg: 40_modules/sysctl.yaml:
+		sysctl::noops: false
+
+* I get error "Parameter source failed on File[sysctl.dir]: Cannot use relative URLs ''"
+
+	Add value to module of the yaml eg: 40_modules/sysctl.yaml:
+		sysctl::source_dir: '/etc/sysctl.d'
+
 
 
 [![Build Status](https://travis-ci.org/example42/puppet-sysctl.png?branch=master)](https://travis-ci.org/example42/puppet-sysctl)
